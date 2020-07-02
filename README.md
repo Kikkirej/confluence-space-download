@@ -17,6 +17,5 @@
 
 ## example command complete
 ```docker
-docker run --rm -v /tmp/export:/export/ -e USRNAME=user -e USRPWD=123 -e SPACE_KEY=SPACE -e CONFBASEURL=https://confluence.domain.com -e NOT_ROUTABLE_HOST=confluence -e ROUTABLE_HOST=confluence.domain.com kikkire/confluence-space-download
+docker run --rm -v /tmp/export:/export/ -e USRNAME=user -e USRPWD=123 -e SPACE_KEY=SPACE -e CONFBASEURL=https://confluence.domain.com -e NOT_ROUTABLE_HOST=confluence -e ROUTABLE_HOST=confluence.domain.com kikkirej/confluence-space-download
 ```
-
