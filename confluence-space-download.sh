@@ -20,6 +20,10 @@ if [[ -z "$CONFBASEURL" ]]; then
    exit 1
 fi
 
+if [[ -z "$EXPORTTYPE" ]]; then
+   EXPORTTYPE=TYPE_HTML
+fi
+
 # From https://jira.atlassian.com/browse/CONFSERVER-40457?_ga=2.48376294.1129510111.1593587912-1418901574.1572616581
 
 JSON=`curl -s -k \
@@ -27,7 +31,7 @@ JSON=`curl -s -k \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -X POST \
-    -d '{ "jsonrpc" : "2.0", "method" : "exportSpace", "params" : ["'${SPACE_KEY}'", "TYPE_HTML"], "id": 7 }' \
+    -d '{ "jsonrpc" : "2.0", "method" : "exportSpace", "params" : ["'${SPACE_KEY}'", "'${EXPORTTYPE}'"], "id": 7 }' \
     ${CONFBASEURL}'/rpc/json-rpc/confluenceservice-v2?os_authType=basic'`
 echo  ermitteltes Json: $JSON
 URL=`echo $JSON | awk 'BEGIN{FS="\""}{print $6}'`
